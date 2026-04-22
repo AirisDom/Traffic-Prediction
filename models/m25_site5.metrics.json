@@ -1,0 +1,23 @@
+{
+  "name": "m25_site5",
+  "baseline": {
+    "mae": 143.6719772681273,
+    "rmse": 251.57091482555103,
+    "mape_pct": 323.8270922859534
+  },
+  "lstm": {
+    "mae": 66.24370218671065,
+    "rmse": 118.58766644385697,
+    "mape_pct": 276.35807812128155
+  },
+  "uplift_mae": 77.42827508141666,
+  "feature_cols": [
+    "flow",
+    "avg_mph",
+    "hour_sin",
+    "hour_cos",
+    "dow_sin",
+    "dow_cos",
+    "is_weekend"
+  ]
+}

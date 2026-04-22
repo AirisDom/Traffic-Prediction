@@ -1,0 +1,13 @@
+tensorflow>=2.16
+# tensorflow-metal (Apple GPU plugin) has no Python 3.13 wheel yet.
+# LSTM at this size trains fast on CPU — reinstate the line below
+# if you downgrade to Python 3.11/3.12 and want GPU:
+# tensorflow-metal; sys_platform == "darwin" and platform_machine == "arm64"
+pandas>=2.0
+numpy>=1.26
+scikit-learn>=1.4
+matplotlib>=3.8
+requests>=2.31
+python-dotenv>=1.0
+jupyter>=1.0
+tqdm>=4.66
