@@ -1,0 +1,32 @@
+{
+  "name": "exp2_tfm_features",
+  "model": "transformer",
+  "feature_cols": [
+    "flow",
+    "avg_mph",
+    "hour_sin",
+    "hour_cos",
+    "dow_sin",
+    "dow_cos",
+    "is_weekend",
+    "is_holiday",
+    "temp_c",
+    "precip_mm",
+    "wind_kmh",
+    "cloud_pct"
+  ],
+  "sites": [
+    "single"
+  ],
+  "baseline": {
+    "mae": 143.6719772681273,
+    "rmse": 251.57091482555103,
+    "mape_pct": 323.8270922859534
+  },
+  "model_metrics": {
+    "mae": 60.98057216976752,
+    "rmse": 103.77259998682332,
+    "mape_pct": 190.02786915005802
+  },
+  "uplift_mae": 82.69140509835978
+}

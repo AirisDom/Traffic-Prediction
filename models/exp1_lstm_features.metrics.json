@@ -1,0 +1,32 @@
+{
+  "name": "exp1_lstm_features",
+  "model": "lstm",
+  "feature_cols": [
+    "flow",
+    "avg_mph",
+    "hour_sin",
+    "hour_cos",
+    "dow_sin",
+    "dow_cos",
+    "is_weekend",
+    "is_holiday",
+    "temp_c",
+    "precip_mm",
+    "wind_kmh",
+    "cloud_pct"
+  ],
+  "sites": [
+    "single"
+  ],
+  "baseline": {
+    "mae": 143.6719772681273,
+    "rmse": 251.57091482555103,
+    "mape_pct": 323.8270922859534
+  },
+  "model_metrics": {
+    "mae": 62.83666206695073,
+    "rmse": 102.97131981310471,
+    "mape_pct": 152.5939837866646
+  },
+  "uplift_mae": 80.83531520117657
+}

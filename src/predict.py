@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 
-from .preprocess import INPUT_STEPS, load_dataset, inverse_target
+from .preprocess import inverse_target, load_dataset
 
 MODELS_DIR = Path(__file__).resolve().parents[1] / "models"
 
@@ -17,16 +17,16 @@ def predict_next_hour(name: str) -> pd.DataFrame:
     ds = load_dataset(name)
     model = tf.keras.models.load_model(MODELS_DIR / f"{name}.keras")
 
-    # Use the final window from the test split as the "latest" input.
     last_X = ds.X_test[-1:]
-    y_pred_scaled = model.predict(last_X, verbose=0)[0]
-    y_pred = inverse_target(y_pred_scaled, ds)
+    last_site = ds.test_site_of_window[-1:]
+    y_pred_scaled = model.predict(last_X, verbose=0)
+    y_pred = inverse_target(y_pred_scaled, ds, last_site)
 
-    # Timestamps: we don't carry them through windows, so just label by offset.
     return pd.DataFrame(
         {
-            "step_ahead_15min": np.arange(1, len(y_pred) + 1),
-            "predicted_flow": y_pred,
+            "step_ahead_15min": np.arange(1, y_pred.shape[1] + 1),
+            "site": last_site[0],
+            "predicted_flow": y_pred[0],
         }
     )
 
